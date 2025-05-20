@@ -85,6 +85,16 @@ const UpdateTitle = async (pk, relesed_year) => {
 };
 
 
+const deleteTilet = async (pk)=>{
+  try{
+    const response = await fetch(`http://127.0.0.1:8000/get_book/${pk}/`,{
+      method:'DELETE',
+    })
+    setBook((previ) => previ.filter((b)=>b.id !== pk ));
+  }catch (error){
+    console.log(error);
+  }
+};
 
 
   return (
@@ -112,6 +122,7 @@ const UpdateTitle = async (pk, relesed_year) => {
     onChange={(e)=>SetNewTitle(e.target.value)}
     />
     <button onClick={() => UpdateTitle(b.id, b.relesed_year)}>Update</button>
+    <button onClick={()=>deleteTilet(b.id)}>delet</button>
    </div>
 
 
