@@ -100,33 +100,36 @@ const deleteTilet = async (pk)=>{
   return (
     <>
 
-    <h1>React+Django Todo App</h1>
-    <input type="text" 
-    placeholder='book title' 
-    onChange={(e)=> setTitle(e.target.value)}
-    />
-
-    <input type="number" 
-    placeholder='relesed date'
-    onChange={(e)=>setYear(e.target.value)}
-    />
-
-
-   <button onClick={addBook}>click me</button>
-   {books.map((b)=>(
-   <div key={b.id}>
-    <h3>title:{b.title} - relese year:{b.relesed_year}</h3>
+  <div className="book-form">
     <input 
-    type="text"
-    placeholder='new title'
-    onChange={(e)=>SetNewTitle(e.target.value)}
+      type="text" 
+      placeholder='Book title' 
+      onChange={(e) => setTitle(e.target.value)}
     />
-    <button onClick={() => UpdateTitle(b.id, b.relesed_year)}>Update</button>
-    <button onClick={()=>deleteTilet(b.id)}>delet</button>
-   </div>
+    <input 
+      type="number" 
+      placeholder='Release year'
+      onChange={(e) => setYear(e.target.value)}
+    />
+    <button onClick={addBook}>Add Book</button>
+  </div>
 
-
-   ))}
+  <div className="book-list">
+    {books.map((b) => (
+      <div className="book-card" key={b.id}>
+        <h3>Title: {b.title} - Year: {b.relesed_year}</h3>
+        <div className="book-actions">
+          <input 
+            type="text"
+            placeholder='New title'
+            onChange={(e) => SetNewTitle(e.target.value)}
+          />
+          <button onClick={() => UpdateTitle(b.id, b.relesed_year)}>Update</button>
+          <button onClick={() => deleteTilet(b.id)}>Delete</button>
+        </div>
+      </div>
+    ))}
+</div>
 
 
     </>

@@ -1,10 +1,14 @@
+/* Enhanced CSS for your Book CRUD App */
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header/Logo styles (keeping your existing animation) */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -33,10 +37,133 @@
   }
 }
 
-.card {
-  padding: 2em;
+/* Form styling */
+.book-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
+.book-form input {
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.book-form input:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 2px #646cffaa;
+}
+
+.book-form button {
+  padding: 0.8rem 1.5rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.book-form button:hover {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+}
+
+/* Book list styling */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.book-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-card h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.book-actions input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.book-actions button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.book-actions button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.book-actions button:first-child:hover {
+  background-color: #3e8e41;
+}
+
+.book-actions button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.book-actions button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-form input {
+    width: 100%;
+  }
+  
+  .book-form button {
+    width: 100%;
+  }
+  
+  .book-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Keeping your existing docs style */
 .read-the-docs {
   color: #888;
 }
